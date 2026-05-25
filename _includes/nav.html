@@ -1,0 +1,14 @@
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <span class="prompt">~/</span><span class="path">{{ site.title }}</span><span class="caret"></span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="document.getElementById('navlinks').classList.toggle('open')">$_</button>
+    <div class="nav-links" id="navlinks">
+      <a href="{{ '/' | relative_url }}">~/home</a>
+      <a href="{{ '/writeups/' | relative_url }}">/writeups</a>
+      <a href="{{ '/about/' | relative_url }}">/about</a>
+      {% if site.github %}<a class="cta" href="{{ site.github }}" target="_blank" rel="noopener">github ↗</a>{% endif %}
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,13 @@
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div class="copy">
+      <span class="p">$</span> echo "&copy; {{ 'now' | date: '%Y' }} {{ site.author }}"
+    </div>
+    <div class="footer-links">
+      {% if site.github %}<a href="{{ site.github }}" target="_blank" rel="noopener">github</a>{% endif %}
+      {% if site.linkedin %}<a href="{{ site.linkedin }}" target="_blank" rel="noopener">linkedin</a>{% endif %}
+      {% if site.email %}<a href="mailto:{{ site.email }}">email</a>{% endif %}
+      <a href="{{ '/feed.xml' | relative_url }}">rss</a>
+    </div>
+  </div>
+</footer>

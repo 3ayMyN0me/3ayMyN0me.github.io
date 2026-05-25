@@ -1,0 +1,46 @@
+---
+layout: default
+---
+<div class="wrap">
+
+  <header class="post-header reveal d1">
+    <div class="reading">
+      <div class="meta">
+        <span>{{ page.date | date: "%Y.%m.%d" }}</span>
+        {% if page.platform %}<span class="chip">{{ page.platform }}</span>{% endif %}
+        {% if page.difficulty %}<span class="pill {{ page.difficulty | downcase }}">{{ page.difficulty }}</span>{% endif %}
+        {% if page.os %}<span>{{ page.os }}</span>{% endif %}
+      </div>
+      <h1>{{ page.title }}</h1>
+      {% if page.description %}<p class="lede" style="color:var(--text-dim);font-size:1.08rem;max-width:58ch;">{{ page.description }}</p>{% endif %}
+      {% if page.tags %}
+      <div class="tags">
+        {% for t in page.tags %}<span class="tag">#{{ t }}</span>{% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </header>
+
+  {% if page.ip or page.os or page.platform or page.tools %}
+  <section class="recon reveal d2">
+    <div class="recon-head">// target recon</div>
+    <div class="recon-body">
+      {% if page.platform %}<div class="item"><span class="k">platform</span><span class="v">{{ page.platform }}</span></div>{% endif %}
+      {% if page.os %}<div class="item"><span class="k">operating system</span><span class="v">{{ page.os }}</span></div>{% endif %}
+      {% if page.difficulty %}<div class="item"><span class="k">difficulty</span><span class="v">{{ page.difficulty }}</span></div>{% endif %}
+      {% if page.ip %}<div class="item"><span class="k">target</span><span class="v">{{ page.ip }}</span></div>{% endif %}
+      {% if page.tools %}<div class="item" style="grid-column:1 / -1;"><span class="k">tools used</span><span class="v">{{ page.tools | join: " · " }}</span></div>{% endif %}
+    </div>
+  </section>
+  {% endif %}
+
+  <article class="article reveal d3">
+    {{ content }}
+  </article>
+
+  <nav class="post-nav">
+    {% if page.previous %}<a href="{{ page.previous.url | relative_url }}">← {{ page.previous.title }}</a>{% else %}<span></span>{% endif %}
+    {% if page.next %}<a href="{{ page.next.url | relative_url }}" style="text-align:right;">{{ page.next.title }} →</a>{% endif %}
+  </nav>
+
+</div>
