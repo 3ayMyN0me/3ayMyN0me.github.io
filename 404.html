@@ -1,0 +1,15 @@
+---
+layout: default
+title: 404
+permalink: /404.html
+---
+<div class="wrap" style="min-height:54vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 0;">
+  <div>
+    <div style="font-family:var(--mono);color:var(--amber);letter-spacing:0.2em;text-transform:uppercase;font-size:0.8rem;margin-bottom:18px;">// connection refused</div>
+    <h1 style="font-family:var(--serif);font-size:clamp(3rem,12vw,7rem);margin:0 0 10px;letter-spacing:-0.03em;">404</h1>
+    <p style="font-family:var(--mono);color:var(--text-dim);margin:0 0 28px;">
+      <span style="color:var(--amber)">$</span> cat {{ page.url }} &rarr; <span style="color:var(--red)">no such file or directory</span>
+    </p>
+    <a class="btn btn-primary" href="{{ '/' | relative_url }}">cd ~/home</a>
+  </div>
+</div>

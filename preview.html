@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a0c10">
+  <title>rootnotes · local preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#"><span class="prompt">~/</span><span class="path">rootnotes</span><span class="caret"></span></a>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="document.getElementById('navlinks').classList.toggle('open')">$_</button>
+      <div class="nav-links" id="navlinks">
+        <a href="#">~/home</a>
+        <a href="#writeups">/writeups</a>
+        <a href="#post">/about</a>
+        <a class="cta" href="#">github ↗</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <span class="kicker reveal d1">offensive security · lab notebook</span>
+          <h1 class="reveal d2">Notes from the<br><em>target machine</em>.</h1>
+          <p class="lede reveal d3">Personal lab notebook and portfolio of Vulnerable VM / Target machine writeups, exploitation walkthroughs, and security research notes.</p>
+          <div class="hero-actions reveal d4">
+            <a class="btn btn-primary" href="#writeups">Read the writeups →</a>
+            <a class="btn" href="#">resume.pdf</a>
+            <a class="btn" href="#">github</a>
+          </div>
+        </div>
+        <div class="terminal reveal d3">
+          <div class="terminal-bar">
+            <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+            <span class="tt">yourname@kali: ~/engagements</span>
+          </div>
+          <div class="terminal-body">
+            <div class="ln"><span class="p">$</span> <span class="c">whoami</span></div>
+            <div class="ln"><span class="o">Your Name — penetration tester / security researcher</span></div>
+            <div class="ln" style="margin-top:10px;"><span class="p">$</span> <span class="c">cat ./focus.txt</span></div>
+            <div class="ln"><span class="o">web exploitation · privilege escalation</span></div>
+            <div class="ln"><span class="o">active directory · enumeration · OSCP-style boxes</span></div>
+            <div class="ln" style="margin-top:10px;"><span class="p">$</span> <span class="c">ls ./writeups | wc -l</span></div>
+            <div class="ln"><span class="ok">2 documented engagements</span></div>
+            <div class="ln cursor-line" style="margin-top:10px;"><span class="p">$</span>&nbsp;<span class="blk"></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LATEST -->
+    <section class="section" id="writeups">
+      <div class="wrap">
+        <div class="section-head reveal d1">
+          <div>
+            <div class="label">// recently rooted</div>
+            <h2>Latest writeups</h2>
+          </div>
+          <a class="more" href="#">view all →</a>
+        </div>
+
+        <div class="filterbar reveal d1" id="filterbar">
+          <button class="filter-btn active" data-filter="all">all</button>
+          <button class="filter-btn" data-filter="hackthebox">HackTheBox</button>
+          <button class="filter-btn" data-filter="proving grounds">Proving Grounds</button>
+          <button class="filter-btn" data-filter="easy">Easy</button>
+          <button class="filter-btn" data-filter="medium">Medium</button>
+        </div>
+
+        <div class="card-grid" id="cardgrid">
+          <article class="card reveal d1" data-tags="hackthebox easy linux">
+            <div class="meta"><span>2025.05.10</span><span class="chip">HackTheBox</span><span class="pill easy">Easy</span></div>
+            <h3><a href="#post">Sample Box — Easy Linux Foothold to Root</a></h3>
+            <p>An exposed web app leaks credentials through a local file inclusion bug, leading to SSH access and a trivial sudo misconfiguration.</p>
+            <div class="tags"><span class="tag">#web</span><span class="tag">#lfi</span><span class="tag">#sudo</span><span class="tag">#privilege-escalation</span></div>
+          </article>
+
+          <article class="card reveal d2" data-tags="proving grounds medium windows">
+            <div class="meta"><span>2025.05.18</span><span class="chip">Proving Grounds</span><span class="pill medium">Medium</span></div>
+            <h3><a href="#post">Active Directory — Kerberoast to Domain Admin</a></h3>
+            <p>Anonymous SMB yields a username list, a Kerberoastable account cracks offline, and a BloodHound path leads to Domain Admin.</p>
+            <div class="tags"><span class="tag">#active-directory</span><span class="tag">#kerberoasting</span><span class="tag">#bloodhound</span></div>
+          </article>
+
+          <article class="card reveal d3" data-tags="hackthebox hard linux">
+            <div class="meta"><span>2025.04.29</span><span class="chip">HackTheBox</span><span class="pill hard">Hard</span></div>
+            <h3><a href="#post">Container Escape via Misconfigured Docker Socket</a></h3>
+            <p>A web RCE drops into a container; an exposed Docker socket becomes the road to host root.</p>
+            <div class="tags"><span class="tag">#docker</span><span class="tag">#rce</span><span class="tag">#container-escape</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SAMPLE POST -->
+    <div class="wrap" id="post">
+      <header class="post-header reveal d1">
+        <div class="reading">
+          <div class="meta">
+            <span>2025.05.10</span>
+            <span class="chip">HackTheBox</span>
+            <span class="pill easy">Easy</span>
+            <span>Linux</span>
+          </div>
+          <h1>Sample Box — Easy Linux Foothold to Root</h1>
+          <p class="lede" style="color:var(--text-dim);font-size:1.08rem;max-width:58ch;">A walkthrough of an easy Linux target: an exposed web app leaks credentials through a local file inclusion bug.</p>
+          <div class="tags">
+            <span class="tag">#web</span><span class="tag">#lfi</span><span class="tag">#sudo</span><span class="tag">#privilege-escalation</span><span class="tag">#enumeration</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="recon reveal d2">
+        <div class="recon-head">// target recon</div>
+        <div class="recon-body">
+          <div class="item"><span class="k">platform</span><span class="v">HackTheBox</span></div>
+          <div class="item"><span class="k">operating system</span><span class="v">Linux</span></div>
+          <div class="item"><span class="k">difficulty</span><span class="v">Easy</span></div>
+          <div class="item"><span class="k">target</span><span class="v">10.10.11.42</span></div>
+          <div class="item" style="grid-column:1 / -1;"><span class="k">tools used</span><span class="v">nmap · gobuster · Burp Suite · linpeas</span></div>
+        </div>
+      </section>
+
+      <article class="article reveal d3">
+        <h2>Reconnaissance</h2>
+        <p>I always start with a full TCP port scan, then a targeted service/version scan on the open ports.</p>
+        <pre><code># Quick discovery of open ports
+nmap -p- --min-rate 5000 -T4 10.10.11.42 -oN scans/all-ports.txt
+
+# Targeted service + script scan
+nmap -p 22,80 -sCV 10.10.11.42 -oN scans/services.txt</code></pre>
+        <p>Two services are exposed: OpenSSH on <code>22</code> and an Apache web server on <code>80</code>. The web server is where I'll focus.</p>
+
+        <div class="callout tip"><span class="ic">TIP</span><p>Never stop at the first scan. A <code>--min-rate</code> sweep is fast but lossy — re-run a full scan in the background while you enumerate.</p></div>
+
+        <h2>Foothold</h2>
+        <p>Directory brute-forcing reveals a hidden admin area with an unsanitised <code>page</code> parameter — a classic <strong>Local File Inclusion</strong> that leaks a reused database password.</p>
+
+        <div class="callout crit"><span class="ic">ROOT</span><p>A wildcard <code>tar</code> pattern in a privileged backup script lets a local user execute an arbitrary command as root — full compromise.</p></div>
+
+        <h3>Takeaways</h3>
+        <ul>
+          <li>LFI is rarely the end goal — it's a credential-discovery primitive.</li>
+          <li><code>sudo -l</code> is the single highest-value command on any Linux foothold.</li>
+          <li>Wildcard injection in privileged scripts remains shockingly common.</li>
+        </ul>
+      </article>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div class="copy"><span class="p">$</span> echo "&copy; 2025 Your Name"</div>
+      <div class="footer-links">
+        <a href="#">github</a><a href="#">linkedin</a><a href="#">email</a><a href="#">rss</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var bar = document.getElementById('filterbar');
+      var cards = Array.prototype.slice.call(document.querySelectorAll('#cardgrid .card'));
+      bar.addEventListener('click', function (e) {
+        var btn = e.target.closest('.filter-btn'); if (!btn) return;
+        bar.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        var f = btn.getAttribute('data-filter');
+        cards.forEach(function (c) {
+          c.style.display = (f === 'all' || (c.getAttribute('data-tags')||'').indexOf(f) !== -1) ? '' : 'none';
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
